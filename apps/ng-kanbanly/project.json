@@ -7,7 +7,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/ng-kanbanly",
         "index": "apps/ng-kanbanly/src/index.html",
@@ -17,9 +19,20 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/ng-kanbanly/src/favicon.ico",
-          "apps/ng-kanbanly/src/assets"
+          "apps/ng-kanbanly/src/assets",
+          {
+            "glob": "**/*",
+            "input": "node_modules/@taiga-ui/icons/src",
+            "output": "assets/taiga-ui/icons"
+          }
         ],
-        "styles": ["apps/ng-kanbanly/src/styles.scss"],
+        "styles": [
+          "node_modules/@taiga-ui/core/styles/taiga-ui-local.scss",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
+          "node_modules/@taiga-ui/styles/taiga-ui-global.less",
+          "apps/ng-kanbanly/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -84,7 +97,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ng-kanbanly"],
+      "outputs": [
+        "coverage/apps/ng-kanbanly"
+      ],
       "options": {
         "jestConfig": "apps/ng-kanbanly/jest.config.ts",
         "passWithNoTests": true
