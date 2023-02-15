@@ -1,0 +1,95 @@
+{
+  "name": "ng-kanbanly",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/ng-kanbanly/src",
+  "prefix": "ng-kanbanly",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ng-kanbanly",
+        "index": "apps/ng-kanbanly/src/index.html",
+        "main": "apps/ng-kanbanly/src/main.ts",
+        "polyfills": "apps/ng-kanbanly/src/polyfills.ts",
+        "tsConfig": "apps/ng-kanbanly/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/ng-kanbanly/src/favicon.ico",
+          "apps/ng-kanbanly/src/assets"
+        ],
+        "styles": ["apps/ng-kanbanly/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/ng-kanbanly/src/environments/environment.ts",
+              "with": "apps/ng-kanbanly/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "ng-kanbanly:build:production"
+        },
+        "development": {
+          "browserTarget": "ng-kanbanly:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "ng-kanbanly:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/ng-kanbanly/**/*.ts",
+          "apps/ng-kanbanly/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ng-kanbanly"],
+      "options": {
+        "jestConfig": "apps/ng-kanbanly/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
