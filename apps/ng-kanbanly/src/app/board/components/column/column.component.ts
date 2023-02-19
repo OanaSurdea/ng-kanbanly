@@ -1,6 +1,6 @@
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Column } from '../../models';
+import { Column, Task } from '../../models';
 
 @Component({
   selector: 'ngk-column',

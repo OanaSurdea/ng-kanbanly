@@ -2,13 +2,12 @@ import { TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { TuiRootModule } from '@taiga-ui/core';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterModule, TuiRootModule],
-      declarations: [AppComponent, NxWelcomeComponent],
+      declarations: [AppComponent],
     }).compileComponents();
   });
 

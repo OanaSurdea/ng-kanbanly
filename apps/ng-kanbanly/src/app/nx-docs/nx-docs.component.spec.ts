@@ -8,9 +8,8 @@ describe('NxDocsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NxDocsComponent ]
-    })
-    .compileComponents();
+      declarations: [NxDocsComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NxDocsComponent);
     component = fixture.componentInstance;
