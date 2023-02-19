@@ -1,18 +1,12 @@
 @import '@taiga-ui/core/styles/taiga-ui-local.scss';
 
+$backgroundColor: #f8fafb;
+
 .column {
-  display: flex;
-  flex-direction: column;
-
   height: 100%;
-  padding: 1rem 1rem 0.5rem 1rem;
-
-  background: var(--tui-base-02);
-  border: 1px solid var(--tui-base-03);
-  border-radius: var(--tui-radius-l);
 
   &__title {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 1.2rem 0;
     text-shadow: 1.5px 1.5px rgb(0 0 0 / 15%);
   }
 
@@ -29,14 +23,25 @@
   }
 
   &__tasks {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    height: calc(100% - 40px);
+    padding: 1rem 1rem 0.5rem 1rem;
+
+    background: $backgroundColor;
+    border: 1px solid var(--tui-base-03);
+    border-radius: var(--tui-radius-l);
   }
 }
 
 ::ng-deep {
   .cdk-drag-preview {
-    border-radius: var(--tui-radius-l);
+    padding: 0.25rem;
     overflow: hidden;
+
+    background: transparent;
+    border-radius: var(--tui-radius-l);
   }
 
   .cdk-drag-animating {
