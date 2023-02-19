@@ -109,6 +109,16 @@
         "jestConfig": "apps/ng-kanbanly/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "executor": "@angular/fire:deploy",
+      "options": {
+        "prerender": false,
+        "ssr": false,
+        "browserTarget": "ng-kanbanly:build:production",
+        "firebaseProject": "ng-kanbanly",
+        "firebaseHostingSite": "ng-kanbanly"
+      }
     }
   },
   "tags": []

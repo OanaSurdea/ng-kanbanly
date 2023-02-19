@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ng-kanbanly"
+  },
+  "targets": {
+    "ng-kanbanly": {
+      "hosting": {
+        "ng-kanbanly": [
+          "ng-kanbanly"
+        ]
+      }
+    }
+  }
+}
