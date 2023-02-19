@@ -3,13 +3,13 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { tuiSvgOptionsProvider, TUI_SANITIZER } from '@taiga-ui/core';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { Board, Column, Task } from './models';
 
 @Component({
-  selector: 'kanban-board',
+  selector: 'ngk-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
   providers: [
@@ -32,7 +32,7 @@ import { Board, Column, Task } from './models';
     }),
   ],
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent {
   public board: Board = new Board('Test Board', [
     new Column('To Do', 'TODO_COLUMN', [
       new Task('Get to work', 'Use terraform'),
@@ -51,10 +51,6 @@ export class BoardComponent implements OnInit {
 
   boardColumnIds: string[] = ['TODO_COLUMN', 'DOING_COLUMN', 'DONE_COLUMN'];
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
   public dropGrid(event: CdkDragDrop<Task[]>): void {
     moveItemInArray(
       this.board.columns,
@@ -63,7 +59,7 @@ export class BoardComponent implements OnInit {
     );
   }
 
-  public drop(event: CdkDragDrop<any[]>): void {
+  public drop(event: CdkDragDrop<Task[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,

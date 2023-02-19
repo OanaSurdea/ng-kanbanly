@@ -9,6 +9,4 @@ import { Task } from '../../models';
 export class TaskComponent {
   @Input() item: Task | null = null;
   @Input() placeholder: string | null = null;
-
-  constructor() {}
 }

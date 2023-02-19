@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ng-kanbanly-nx-docs',
+  selector: 'ngk-nx-docs',
   templateUrl: './nx-docs.component.html',
-  styleUrls: ['./nx-docs.component.scss']
+  styleUrls: ['./nx-docs.component.scss'],
 })
-export class NxDocsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class NxDocsComponent {}

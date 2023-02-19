@@ -12,11 +12,9 @@ export class ColumnComponent {
   @Input() boardColumnIds: string[] = [];
   @Input() placeholder: string | null = null;
 
-  @Output() onDropped: EventEmitter<CdkDragDrop<Task[]>> = new EventEmitter();
+  @Output() dropped: EventEmitter<CdkDragDrop<Task[]>> = new EventEmitter();
 
-  constructor() {}
-
-  handleCdkDropListDropped(event: CdkDragDrop<any[]>): void {
-    this.onDropped.emit(event);
+  handleCdkDropListDropped(event: CdkDragDrop<Task[]>): void {
+    this.dropped.emit(event);
   }
 }
