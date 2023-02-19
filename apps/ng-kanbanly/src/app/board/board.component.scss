@@ -1,0 +1,28 @@
+@import '@taiga-ui/core/styles/taiga-ui-local.scss';
+
+.board {
+  &__column {
+    height: 100%;
+  }
+
+  &__columns {
+    display: grid;
+    gap: 1rem;
+    grid-auto-columns: minmax(240px, 400px);
+    grid-auto-flow: column;
+
+    padding: 1rem;
+
+    border: 1px solid var(--tui-base-03);
+    border-radius: var(--tui-radius-l);
+    background: var(--tui-base-02);
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: fit-content;
+    }
+  }
+}

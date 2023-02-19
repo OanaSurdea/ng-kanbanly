@@ -1,10 +1,18 @@
-<p>board works!</p>
-
-<button
-  tuiButton
-  type="button"
-  appearance="primary"
-  class="tui-space_right-3 tui-space_bottom-3"
+<div
+  class="board"
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  (cdkDropListDropped)="dropGrid($event)"
 >
-  primary
-</button>
+  <tui-scrollbar class="container">
+    <div class="board__columns">
+      <ngk-column
+        *ngFor="let column of board.columns"
+        [column]="column"
+        [placeholder]="'Drop here'"
+        [boardColumnIds]="boardColumnIds"
+        (onDropped)="drop($event)"
+      ></ngk-column>
+    </div>
+  </tui-scrollbar>
+</div>

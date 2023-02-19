@@ -1,0 +1,16 @@
+<ng-container *ngIf="item">
+  <div class="task" cdkDrag>
+    <!-- Placeholder -->
+    <ng-container *ngIf="placeholder">
+      <div class="task__placeholder" *cdkDragPlaceholder>
+        <p>{{ placeholder }}</p>
+      </div>
+    </ng-container>
+
+    <!-- Content -->
+    <div class="task__content">
+      <h3 class="task__title">{{ item.title }}</h3>
+      <p class="task__description">{{ item.description }}</p>
+    </div>
+  </div>
+</ng-container>

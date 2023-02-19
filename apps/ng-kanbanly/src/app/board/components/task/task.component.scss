@@ -1,0 +1,61 @@
+@import '@taiga-ui/core/styles/taiga-ui-local.scss';
+
+$taskHeight: 100px;
+
+.task {
+  padding: 1rem;
+  overflow: hidden;
+
+  background: var(--tui-base-01);
+  border-radius: var(--tui-radius-l);
+  border: 1px solid var(--tui-base-03);
+
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  @include shadow(0);
+
+  &__content {
+    min-height: calc(#{$taskHeight} - 2rem);
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  &__decription {
+    font-size: 0.9rem;
+  }
+
+  &__placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: $taskHeight;
+
+    margin-top: 0.58rem;
+    margin-bottom: 0.58rem;
+
+    color: var(--tui-base-04);
+    border-radius: var(--tui-radius-l);
+    border: 2px dashed var(--tui-base-03);
+  }
+}
+
+::ng-deep {
+  .cdk-drag-preview {
+    @include shadow(5);
+    font-size: 1rem;
+  }
+
+  .cdk-drag-animating {
+    @include transition(box-shadow);
+    @include transition(transform);
+  }
+
+  .column__tasks.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
+    @include transition(transform);
+  }
+}

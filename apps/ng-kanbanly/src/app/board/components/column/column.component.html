@@ -1,0 +1,30 @@
+<ng-container *ngIf="column && boardColumnIds">
+  <div cdkDrag cdkDragLockAxis="x" class="column">
+    <!-- Placeholder -->
+    <ng-container *ngIf="placeholder">
+      <div class="column__placeholder" *cdkDragPlaceholder>
+        <p>{{ placeholder }}</p>
+      </div>
+    </ng-container>
+
+    <!-- Title -->
+    <h2 class="column__title" cdkDragHandle>{{ column.name }}</h2>
+
+    <!-- Task list -->
+    <div
+      class="column__tasks"
+      [id]="column.id"
+      cdkDropList
+      [cdkDropListConnectedTo]="boardColumnIds"
+      [cdkDropListData]="column.tasks"
+      (cdkDropListDropped)="handleCdkDropListDropped($event)"
+    >
+      <!-- Task -->
+      <ngk-task
+        *ngFor="let task of column.tasks"
+        [placeholder]="placeholder"
+        [item]="task"
+      ></ngk-task>
+    </div>
+  </div>
+</ng-container>
