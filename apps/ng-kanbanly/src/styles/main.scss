@@ -1,0 +1,32 @@
+@import './variables';
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 1rem;
+  width: calc(100vw - 2rem);
+}
+
+.grid {
+  display: grid;
+
+  &--1 {
+    gap: 1rem;
+  }
+}
+
+.flex {
+  display: flex;
+
+  &--1 {
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &--between {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
