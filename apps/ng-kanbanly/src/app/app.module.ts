@@ -7,6 +7,7 @@ import {
 } from '@angular/fire/analytics';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { provideFirestore } from '@angular/fire/firestore';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -16,6 +17,7 @@ import {
   TUI_SANITIZER,
 } from '@taiga-ui/core';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
+import { getFirestore } from 'firebase/firestore';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,8 +39,7 @@ import { AppComponent } from './app.component';
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
 
-    // provideDatabase(() => getDatabase()),
-    // provideFirestore(() => getFirestore()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [
     { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },

@@ -4,33 +4,12 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
-import { tuiSvgOptionsProvider, TUI_SANITIZER } from '@taiga-ui/core';
-import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { Board, Column, Task } from './models';
 
 @Component({
   selector: 'ngk-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
-  providers: [
-    /**
-     * @note:
-     * required for rendering inline svg sources
-     */
-    {
-      provide: TUI_SANITIZER,
-      useClass: NgDompurifySanitizer,
-    },
-    tuiSvgOptionsProvider({
-      srcProcessor: (src) => {
-        const myCustomPrefix = 'icons8::';
-
-        return String(src).startsWith(myCustomPrefix)
-          ? `assets/icons8/${String(src).replace(myCustomPrefix, '')}.svg`
-          : src;
-      },
-    }),
-  ],
 })
 export class BoardComponent {
   public board: Board = new Board('Test Board', [

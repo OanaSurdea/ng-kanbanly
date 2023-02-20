@@ -1,12 +1,14 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
   TuiButtonModule,
+  TuiDialogModule,
   TuiScrollbarModule,
   TuiSvgModule,
 } from '@taiga-ui/core';
-import { TuiTilesModule } from '@taiga-ui/kit';
+import { TuiInputModule, TuiTilesModule } from '@taiga-ui/kit';
 
 import { BoardRoutingModule } from './board-routing.module';
 import { BoardComponent } from './board.component';
@@ -18,11 +20,19 @@ import { TaskComponent } from './components/task/task.component';
   imports: [
     CommonModule,
     BoardRoutingModule,
-    TuiSvgModule,
-    // tuiIconDrag
+
+    // Angular
+    FormsModule,
+
+    // Taiga
     TuiButtonModule,
+    TuiDialogModule,
+    TuiInputModule,
     TuiTilesModule,
     TuiScrollbarModule,
+    TuiSvgModule,
+
+    // Cdk
     DragDropModule,
   ],
   exports: [BoardComponent, TuiTilesModule, TuiSvgModule],
