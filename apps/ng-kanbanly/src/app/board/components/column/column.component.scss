@@ -2,6 +2,10 @@
 
 $backgroundColor: #f8fafb;
 
+.d-hover {
+  visibility: hidden;
+}
+
 .column {
   height: 100%;
 
@@ -32,6 +36,10 @@ $backgroundColor: #f8fafb;
     background: $backgroundColor;
     border: 1px solid var(--tui-base-03);
     border-radius: var(--tui-radius-l);
+  }
+
+  &:hover .d-hover {
+    visibility: visible !important;
   }
 }
 

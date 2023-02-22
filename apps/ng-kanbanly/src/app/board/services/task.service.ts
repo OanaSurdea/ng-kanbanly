@@ -7,6 +7,8 @@ import {
   doc,
   docData,
   Firestore,
+  orderBy,
+  query,
   setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
@@ -24,14 +26,17 @@ export class TaskService {
     return addDoc(tasksRef, task);
   }
 
-  getOne(id: string) {
+  getOne(id: string): Observable<Task> {
     const taskRef = doc(this.firestore, `tasks/${id}`);
     return docData(taskRef, { idField: 'id' }) as Observable<Task>;
   }
 
   getAll(): Observable<Task[]> {
     const tasksRef = collection(this.firestore, 'tasks');
-    return collectionData(tasksRef, { idField: 'id' }) as Observable<Task[]>;
+
+    return collectionData(query(tasksRef, orderBy('title', 'asc')), {
+      idField: 'id',
+    }) as Observable<Task[]>;
   }
 
   updateOne(task: Task) {

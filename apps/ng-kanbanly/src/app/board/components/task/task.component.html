@@ -1,5 +1,5 @@
 <ng-container *ngIf="item">
-  <div class="task" cdkDrag>
+  <div class="task" cdkDrag [class.task--new]="isNewTask">
     <!-- Placeholder -->
     <ng-container *ngIf="placeholder">
       <div class="task__placeholder" *cdkDragPlaceholder>
@@ -9,7 +9,26 @@
 
     <!-- Content -->
     <div class="task__content">
-      <h3 class="task__title">{{ item.title }}</h3>
+      <ng-container *ngIf="isNewTask; then editableTitle; else readonlyTitle">
+      </ng-container>
+
+      <ng-template #editableTitle>
+        <h3 class="task__title" [class.task__title--empty]="!item.title">
+          <tui-input-inline
+            tuiAutoFocus
+            [(ngModel)]="item.title"
+            (keydown.esc.prevent)="cancel()"
+            (keydown.enter.prevent)="save()"
+          >
+            Type a title
+          </tui-input-inline>
+        </h3>
+      </ng-template>
+
+      <ng-template #readonlyTitle>
+        <h3 class="task__title">{{ item.title }}</h3>
+      </ng-template>
+
       <p class="task__description">{{ item.description }}</p>
     </div>
   </div>
