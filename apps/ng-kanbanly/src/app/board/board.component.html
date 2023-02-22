@@ -12,6 +12,7 @@
         [placeholder]="'Drop here'"
         [boardColumnIds]="boardColumnIds"
         (dropped)="drop($event)"
+        (newTaskCreated)="createNewTask($event)"
       ></ngk-column>
     </div>
   </tui-scrollbar>

@@ -2,13 +2,18 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TuiAutoFocusModule } from '@taiga-ui/cdk';
 import {
   TuiButtonModule,
   TuiDialogModule,
   TuiScrollbarModule,
   TuiSvgModule,
 } from '@taiga-ui/core';
-import { TuiInputModule, TuiTilesModule } from '@taiga-ui/kit';
+import {
+  TuiInputInlineModule,
+  TuiInputModule,
+  TuiTilesModule,
+} from '@taiga-ui/kit';
 
 import { BoardRoutingModule } from './board-routing.module';
 import { BoardComponent } from './board.component';
@@ -28,9 +33,11 @@ import { TaskComponent } from './components/task/task.component';
     TuiButtonModule,
     TuiDialogModule,
     TuiInputModule,
+    TuiInputInlineModule,
     TuiTilesModule,
     TuiScrollbarModule,
     TuiSvgModule,
+    TuiAutoFocusModule,
 
     // Cdk
     DragDropModule,

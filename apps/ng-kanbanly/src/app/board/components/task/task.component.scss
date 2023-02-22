@@ -22,6 +22,10 @@ $taskHeight: 100px;
   &__title {
     font-size: 1.1rem;
     margin: 0;
+
+    &--empty {
+      opacity: 0.3;
+    }
   }
 
   &__decription {
@@ -41,6 +45,10 @@ $taskHeight: 100px;
     color: var(--tui-base-05);
     border-radius: var(--tui-radius-l);
     border: 2px dashed var(--tui-base-04);
+  }
+
+  &--new {
+    border: 2px solid var(--tui-primary);
   }
 }
 
