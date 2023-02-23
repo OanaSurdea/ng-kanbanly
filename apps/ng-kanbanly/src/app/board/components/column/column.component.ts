@@ -12,7 +12,8 @@ export class ColumnComponent {
   @Input() boardColumnIds: string[] = [];
   @Input() placeholder: string | null = null;
 
-  newTask: Task | null = null;
+  showNewTask: boolean = false;
+  newTask: Task | null = new Task('', '');
 
   @Output() dropped: EventEmitter<CdkDragDrop<Task[]>> = new EventEmitter();
   @Output() newTaskCreated: EventEmitter<Task> = new EventEmitter();
@@ -22,19 +23,19 @@ export class ColumnComponent {
   }
 
   handleTaskTitleCanceled(): void {
-    this.newTask = null;
+    this.showNewTask = false;
   }
 
   handleTaskTitleEdited(newTitle: string): void {
     this.newTaskCreated.emit(new Task(newTitle, ''));
-    this.newTask = null;
-  }
-
-  initNewTask(): void {
     this.newTask = new Task('', '');
   }
 
+  initNewTask(): void {
+    this.showNewTask = true;
+  }
+
   reset(): void {
-    this.newTask = null;
+    this.showNewTask = false;
   }
 }

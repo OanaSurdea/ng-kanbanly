@@ -2,10 +2,6 @@
 
 $backgroundColor: #f8fafb;
 
-.d-hover {
-  visibility: hidden;
-}
-
 .column {
   height: 100%;
 
@@ -37,10 +33,10 @@ $backgroundColor: #f8fafb;
     border: 1px solid var(--tui-base-03);
     border-radius: var(--tui-radius-l);
   }
+}
 
-  &:hover .d-hover {
-    visibility: visible !important;
-  }
+.d-hover {
+  display: none;
 }
 
 ::ng-deep {
@@ -58,7 +54,15 @@ $backgroundColor: #f8fafb;
     background-color: transparent;
   }
 
-  .board.cdk-drop-list-dragging .column:not(.cdk-drag-placeholder) {
-    @include transition(transform);
+  .board {
+    &.cdk-drop-list-dragging .column:not(.cdk-drag-placeholder) {
+      @include transition(transform);
+    }
+
+    .column__tasks:not(.cdk-drop-list-dragging) {
+      &:hover .d-hover {
+        display: block;
+      }
+    }
   }
 }

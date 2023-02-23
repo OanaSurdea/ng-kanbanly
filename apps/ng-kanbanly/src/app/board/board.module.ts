@@ -2,6 +2,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ClickOutsideModule } from '@solidexpert/ng-click-outside';
 import { TuiAutoFocusModule } from '@taiga-ui/cdk';
 import {
   TuiButtonModule,
@@ -41,6 +42,7 @@ import { TaskComponent } from './components/task/task.component';
 
     // Cdk
     DragDropModule,
+    ClickOutsideModule,
   ],
   exports: [BoardComponent, TuiTilesModule, TuiSvgModule],
 })

@@ -27,12 +27,12 @@
       ></ngk-task>
 
       <button
-        *ngIf="!newTask; else newTaskInput"
+        *ngIf="!showNewTask; else newTaskInput"
         tuiButton
         type="button"
         appearance="flat"
         icon="tuiIconPlus"
-        class="tui-space_right-3 tui-space_bottom-3 d-hover"
+        class="d-hover"
         (click)="initNewTask()"
       >
         New Task
@@ -43,9 +43,11 @@
           <ngk-task
             [item]="newTask"
             [placeholder]="placeholder"
-            [isNewTask]="newTask !== null"
+            [isNewTask]="showNewTask"
             (titleCanceled)="handleTaskTitleCanceled()"
             (titleEdited)="handleTaskTitleEdited($event)"
+            [delayClickOutsideInit]="true"
+            (clickOutside)="reset()"
           ></ngk-task>
         </div>
       </ng-template>

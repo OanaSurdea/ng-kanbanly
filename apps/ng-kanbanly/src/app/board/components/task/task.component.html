@@ -1,5 +1,10 @@
 <ng-container *ngIf="item">
-  <div class="task" cdkDrag [class.task--new]="isNewTask">
+  <div
+    class="task"
+    cdkDrag
+    [cdkDragDisabled]="isNewTask"
+    [class.task--new]="isNewTask"
+  >
     <!-- Placeholder -->
     <ng-container *ngIf="placeholder">
       <div class="task__placeholder" *cdkDragPlaceholder>

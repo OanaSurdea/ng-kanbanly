@@ -52,6 +52,10 @@ $taskHeight: 100px;
   }
 }
 
+.d-hover {
+  visibility: hidden;
+}
+
 ::ng-deep {
   .cdk-drag-preview {
     @include shadow(5);
@@ -64,7 +68,9 @@ $taskHeight: 100px;
     @include transition(transform);
   }
 
-  .column__tasks.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
-    @include transition(transform);
+  .column__tasks {
+    &.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
+      @include transition(transform);
+    }
   }
 }
