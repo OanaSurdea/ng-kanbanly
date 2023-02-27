@@ -1,5 +1,12 @@
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { Column, Task } from '../../models';
 
 @Component({
@@ -7,16 +14,22 @@ import { Column, Task } from '../../models';
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss'],
 })
-export class ColumnComponent {
+export class ColumnComponent implements OnChanges {
   @Input() column: Column | null = null;
   @Input() boardColumnIds: string[] = [];
   @Input() placeholder: string | null = null;
 
   showNewTask: boolean = false;
-  newTask: Task | null = new Task('', '');
+  newTask: Task | null = null;
 
   @Output() dropped: EventEmitter<CdkDragDrop<Task[]>> = new EventEmitter();
   @Output() newTaskCreated: EventEmitter<Task> = new EventEmitter();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes && changes['column'].currentValue) {
+      this.newTask = new Task('', '', changes['column'].currentValue.id);
+    }
+  }
 
   handleCdkDropListDropped(event: CdkDragDrop<Task[]>): void {
     this.dropped.emit(event);
@@ -27,8 +40,10 @@ export class ColumnComponent {
   }
 
   handleTaskTitleEdited(newTitle: string): void {
-    this.newTaskCreated.emit(new Task(newTitle, ''));
-    this.newTask = new Task('', '');
+    if (this.column?.id) {
+      this.newTaskCreated.emit(new Task(newTitle, '', this.column.id));
+      this.newTask = new Task('', '', this.column.id);
+    }
   }
 
   initNewTask(): void {

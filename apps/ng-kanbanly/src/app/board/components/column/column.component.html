@@ -8,13 +8,13 @@
     </ng-container>
 
     <!-- Title -->
-    <h2 class="column__title" cdkDragHandle>{{ column.name }}</h2>
+    <h2 class="column__title" cdkDragHandle>{{ column.label }}</h2>
 
     <!-- Task list -->
     <div
       class="column__tasks"
-      [id]="column.id"
       cdkDropList
+      [id]="column.id"
       [cdkDropListConnectedTo]="boardColumnIds"
       [cdkDropListData]="column.tasks"
       (cdkDropListDropped)="handleCdkDropListDropped($event)"
