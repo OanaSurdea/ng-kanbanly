@@ -1,0 +1,40 @@
+{
+  "name": "ngk-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ngk-ui/src",
+  "prefix": "ng-kanbanly",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/ngk-ui"],
+      "options": {
+        "project": "libs/ngk-ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ngk-ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ngk-ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ngk-ui"],
+      "options": {
+        "jestConfig": "libs/ngk-ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/ngk-ui/**/*.ts", "libs/ngk-ui/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}
