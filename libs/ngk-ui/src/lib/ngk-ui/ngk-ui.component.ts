@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'ng-kanbanly-ngk-ui',
@@ -9,8 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./ngk-ui.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class NgkUiComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class NgkUiComponent {}

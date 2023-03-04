@@ -3,7 +3,8 @@
     "../../.eslintrc.json"
   ],
   "ignorePatterns": [
-    "!**/*"
+    "!**/*",
+    "**/node_modules/**"
   ],
   "overrides": [
     {
@@ -30,7 +31,8 @@
             "prefix": "ngk",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@typescript-eslint/no-inferrable-types": "off"
       }
     },
     {

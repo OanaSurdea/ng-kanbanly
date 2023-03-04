@@ -28,6 +28,7 @@ export class BoardComponent implements OnInit {
   }
 
   public createNewTask(newTask: Task): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id, ...task } = newTask;
 
     this._taskService
