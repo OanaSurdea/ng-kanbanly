@@ -10,8 +10,10 @@
 
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 
-  h1 {
-    font-size: 1.6rem;
+  &__widget {
+    width: 75px;
+    overflow: hidden;
+    margin-right: 20px;
   }
 }
 
@@ -45,5 +47,11 @@ tui-root {
       width: 1rem;
       border-radius: 2.6px;
     }
+  }
+}
+
+.title {
+  &-app {
+    font-size: 1.6rem;
   }
 }
